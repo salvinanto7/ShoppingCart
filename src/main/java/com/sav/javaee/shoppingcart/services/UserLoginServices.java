@@ -7,24 +7,21 @@ import com.sav.javaee.shoppingcart.dao.DBConnection;
 import com.sav.javaee.shoppingcart.dao.MSSQLConnection;
 import com.sav.javaee.shoppingcart.dao.UserRegistrationDAO;
 import com.sav.javaee.shoppingcart.dto.DBConfDTO;
+import com.sav.javaee.shoppingcart.entity.UserLoginEntity;
 import com.sav.javaee.shoppingcart.entity.userRegistrationEntity;
 
-public class UserRegistrationService {
+public class UserLoginServices {
 	
-	private DBConfDTO dbConf;
-	public UserRegistrationService(DBConfDTO dbConf) {
-		this.dbConf = dbConf;
-	}
-
-	public String saveUserRegistration(userRegistrationEntity user) {
+	
+	public String checkLogin(UserLoginEntity user,DBConfDTO dbConf) {
 		DBConnection conn = new MSSQLConnection();
 		Connection mssqlconn = null;
 		String message = null;
 		int status = -1;
 		try {
 			mssqlconn = conn.createConnection(dbConf);
-			UserRegistrationDAO userRegister = new UserRegistrationDAO(); 
-			status = userRegister.saveuserRegistration(user,mssqlconn);
+			UserLoginDAO userLogin = new UserLoginDAO(); 
+			status = userLogin.checkUserLogin(user,mssqlconn);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -41,5 +38,29 @@ public class UserRegistrationService {
 		}
 		return message;
 	}
-
+	
+	public String getuserData(String parameter, DBConfDTO dbConf) {
+		DBConnection conn = new MSSQLConnection();
+		Connection mssqlconn = null;
+		String name = null;
+		
+		try {
+			mssqlconn = conn.createConnection(dbConf);
+			UserDataDAO userData = new UserDataDAO(); 
+			name = userData.getUser(parameter,mssqlconn);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+			if(conn!=null && !mssqlconn.isClosed()) {
+				
+				mssqlconn.close();
+				}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}			
+		}
+		return name;
+	}
 }

@@ -43,6 +43,11 @@ public class Controller extends HttpServlet implements Servlet {
 			request.getRequestDispatcher(viewId).forward(request,response);
 		}else if(userAction.equals(UserAction.REGISTER)) {
 			response.sendRedirect("register.jsp");
+		}else if(userAction.equals(UserAction.SUBMIT_LOGIN)) {
+			Handler handle = new LoginHandler();
+			String viewId = handle.handleRequest(request,response);
+			session = addToSession(request);
+			request.getRequestDispatcher(viewId).forward(request,response);
 		}
 	}
 /////////////////////////////////////////////////////////////////////////////////////
