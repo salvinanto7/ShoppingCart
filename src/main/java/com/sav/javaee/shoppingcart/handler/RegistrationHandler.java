@@ -12,6 +12,7 @@ import com.sav.javaee.shoppingcart.services.UserRegistrationService;
 
 public class RegistrationHandler implements Handler{
 
+
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

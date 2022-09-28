@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sav.javaee.shoppingcart.dto.DBConfDTO;
+import com.sav.javaee.shoppingcart.handler.Handler;
+import com.sav.javaee.shoppingcart.handler.RegistrationHandler;
 
 /**
  * Servlet implementation class Controller
@@ -35,7 +37,7 @@ public class Controller extends HttpServlet implements Servlet {
 		String userAction = request.getParameter(UserAction.USER_ACTION);
 		
 		if(userAction.equals(UserAction.SUBMIT_REGISTRATION)) {
-			Handler handle = new RegistrationHandler(request,response);
+			Handler handle = new RegistrationHandler();
 			String viewId = handle.handleRequest(request,response);
 			session = addToSession(request);
 			request.getRequestDispatcher(viewId).forward(request,response);
@@ -43,7 +45,7 @@ public class Controller extends HttpServlet implements Servlet {
 			response.sendRedirect("register.jsp");
 		}
 	}
-
+/////////////////////////////////////////////////////////////////////////////////////
 	private HttpSession addToSession(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("email")==null) {
