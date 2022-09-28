@@ -49,8 +49,23 @@ public class Controller extends HttpServlet implements Servlet {
 			String viewId = handle.handleRequest(request,response);
 			session = addToSession(request);
 			request.getRequestDispatcher(viewId).forward(request,response);
+		}else if(userAction.equals(UserAction.LOGIN)){
+			response.sendRedirect("login.jsp");
+		}else if(strip(userAction).equals(UserAction.ADDTOCART)){
+			if(session.getAttribute("user")!=null) {
+				int prodId =Integer.parseInt(userAction.substring(userAction.lastIndexOf("/")+1,userAction.length()));
+				
+			}
 		}
 	}
+	
+	
+private Object strip(String userAction) {
+		String action = userAction.substring(0,userAction.lastIndexOf("/"));
+		System.out.println(action);
+		return action;
+	}
+
 /////////////////////////////////////////////////////////////////////////////////////
 	private HttpSession addToSession(HttpServletRequest request) {
 		HttpSession session = request.getSession();
