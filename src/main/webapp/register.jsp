@@ -89,14 +89,19 @@
 								type="password" class="form-control" id="password"
 								name="password" placeholder="Password">
 						</div>
-						<input type="hidden" name="userAction" value="submit_login">
+						<div class="form-group">
+							<label for="phone">Phone</label> <input
+								type="tel" class="form-control" id="phone"
+								name="phone" placeholder="Password">
+						</div>
+						<input type="hidden" name="userAction" value="submit_registration">
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 				</div>
 				<div class="col-md-6 d-flex align-items-center justify-content-center">
 					<div>
 						<h2>Welcome to Shopping Cart</h2>
-						<h4>Please login to <span style="color:green">Continue!</span></h4>
+						<h4>Please do <span style="color:green">Sign Up!</span></h4>
 					</div>
 				</div>
 			</div>

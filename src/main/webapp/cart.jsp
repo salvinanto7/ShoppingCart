@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Shopping Cart</title>
 <link rel='stylesheet'
 	href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
 	integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T'
@@ -19,6 +19,14 @@
 
 <script type="text/javascript" charset="utf8"
 	src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<style>
+.body {
+	background-image: url("cover.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+</style>
 
 </head>
 <body>
@@ -70,38 +78,30 @@
 
 	</section>
 
-	<section>
+	<section id="cartsection">
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 my-5">
-
-					<form action="controller" method="post">
-						<div class="form-group">
-							<label for="email">Email address</label> <input
-								type="email" class="form-control" id="email"
-								aria-describedby="emailHelp" name="email" placeholder="Enter email">
-							<small id="emailHelp" class="form-text text-muted">We'll
-								never share your email with anyone else.</small>
-						</div>
-						<div class="form-group">
-							<label for="password">Password</label> <input
-								type="password" class="form-control" id="password"
-								name="password" placeholder="Password">
-						</div>
-						<input type="hidden" name="userAction" value="submit_login">
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</form>
-				</div>
-				<div class="col-md-6 d-flex align-items-center justify-content-center">
-					<div>
-						<h2>Welcome to Shopping Cart</h2>
-						<h4>Please login to <span style="color:green">Continue!</span></h4>
-					</div>
-				</div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Product</th>
+							<th scope="col">Description</th>
+							<th scope="col">Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${cart}" var="element">
+							<tr>
+								<td>${element.name}</td>
+								<td>${element.description}</td>
+								<td>${element.price}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
 		</div>
-
 	</section>
 
 
