@@ -33,5 +33,12 @@ public class LoginHandler implements Handler{
 		user.setPassword(request.getParameter("password"));
 		return user;
 	}
+	
+	public String getUserData(HttpServletRequest request) {
+		DBConfDTO dbConf = (DBConfDTO) request.getServletContext().getAttribute("dbConf");
+		UserLoginService rs = new UserLoginService();
+		String name = rs.getuserData(request.getParameter("email"), dbConf);
+		return name;
+	}
 
 }

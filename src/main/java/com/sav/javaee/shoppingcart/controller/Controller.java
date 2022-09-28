@@ -56,7 +56,9 @@ public class Controller extends HttpServlet implements Servlet {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("email")==null) {
 			session.setAttribute("email", request.getParameter("email"));
-			session.setAttribute("user", request.getParameter("name"));
+			LoginHandler handle = new LoginHandler();
+			String name = handle.getUserData(request);
+			session.setAttribute("user", name);
 		}
 		return session;
 	}
