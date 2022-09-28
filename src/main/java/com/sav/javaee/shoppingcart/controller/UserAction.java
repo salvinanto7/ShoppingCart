@@ -9,4 +9,5 @@ public interface UserAction {
 	String PRODUCTS ="products";
 	String CART = "cart";
 	String ADDTOCART = "addToCart";
+	String LOGOUT = "logout";
 }
