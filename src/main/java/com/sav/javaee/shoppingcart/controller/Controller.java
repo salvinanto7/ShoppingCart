@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sav.javaee.shoppingcart.dto.DBConfDTO;
+import com.sav.javaee.shoppingcart.handler.CartHandler;
 import com.sav.javaee.shoppingcart.handler.Handler;
 import com.sav.javaee.shoppingcart.handler.LoginHandler;
 import com.sav.javaee.shoppingcart.handler.RegistrationHandler;
@@ -55,6 +56,16 @@ public class Controller extends HttpServlet implements Servlet {
 			if(session.getAttribute("user")!=null) {
 				int prodId =Integer.parseInt(userAction.substring(userAction.lastIndexOf("/")+1,userAction.length()));
 				
+				CartHandler handle =new CartHandler();
+				String email = (String) session.getAttribute("email");
+				String message = handle.addToCart(prodId,email,request,response);
+				System.out.println(message);
+				if(message.equals("success")) {
+					System.out.println("no errors");
+					request.getRequestDispatcher("products.jsp");
+				}
+			}else {
+				response.sendRedirect("login.jsp");
 			}
 		}
 	}

@@ -38,7 +38,7 @@
 						href="index.jsp">Home <span class="sr-only">(current)</span>
 					</a></li>
 					<c:if test="${sessionScope.email!=null}">
-						<form action="controller"
+						<form action="controller" method="post"
 							class="d-flex align-items-ceter justify-content-center">
 							<input type="hidden" class="nav-items" name="userAction"
 								value="cart">

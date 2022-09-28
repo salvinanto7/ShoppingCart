@@ -46,7 +46,7 @@
 								style="background-color: none; border: none; margin: auto">Cart</button>
 						</form>
 					</c:if>
-					<form action="controller"
+					<form action="controller" method="post"
 						class="d-flex align-items-ceter justify-content-center">
 						<input type="hidden" class="nav-items" name="userAction"
 							value="products">
