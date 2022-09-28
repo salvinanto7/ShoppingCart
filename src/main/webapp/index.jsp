@@ -47,7 +47,7 @@
 					</a></li>
 					<c:if test="${sessionScope.email!=null}">
 						<form action="controller"
-							class="d-flex align-items-ceter justify-content-center">
+							class="d-flex align-items-ceter justify-content-center" method="post">
 							<input type="hidden" class="nav-items" name="userAction"
 								value="cart">
 							<button type="submit" class="bg-light"
@@ -55,7 +55,7 @@
 						</form>
 					</c:if>
 					<form action="controller"
-						class="d-flex align-items-ceter justify-content-center">
+						class="d-flex align-items-ceter justify-content-center" method="post">
 						<input type="hidden" class="nav-items" name="userAction"
 							value="products">
 						<button type="submit" class="bg-light"
