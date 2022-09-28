@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.body{
+	background-image : url('webapp/cover.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
