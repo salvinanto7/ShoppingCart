@@ -64,7 +64,7 @@ public class Controller extends HttpServlet implements Servlet {
 		dbConf.setUser(config.getInitParameter("user"));
 		dbConf.setPassword(config.getInitParameter("password"));
 		
-		config.getServletContext().setAttribute("dbConf, dbConf);
+		config.getServletContext().setAttribute("dbConf", dbConf);
 	}
 	
 }
