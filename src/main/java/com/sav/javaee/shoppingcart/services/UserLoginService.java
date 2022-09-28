@@ -5,12 +5,13 @@ import java.sql.SQLException;
 
 import com.sav.javaee.shoppingcart.dao.DBConnection;
 import com.sav.javaee.shoppingcart.dao.MSSQLConnection;
-import com.sav.javaee.shoppingcart.dao.UserRegistrationDAO;
+import com.sav.javaee.shoppingcart.dao.UserDataDAO;
+import com.sav.javaee.shoppingcart.dao.UserLoginDAO;
 import com.sav.javaee.shoppingcart.dto.DBConfDTO;
 import com.sav.javaee.shoppingcart.entity.UserLoginEntity;
-import com.sav.javaee.shoppingcart.entity.userRegistrationEntity;
 
-public class UserLoginServices {
+
+public class UserLoginService {
 	
 	
 	public String checkLogin(UserLoginEntity user,DBConfDTO dbConf) {
@@ -47,7 +48,7 @@ public class UserLoginServices {
 		try {
 			mssqlconn = conn.createConnection(dbConf);
 			UserDataDAO userData = new UserDataDAO(); 
-			name = userData.getUser(parameter,mssqlconn);
+			name = userData.getUser(mssqlconn,parameter);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally{

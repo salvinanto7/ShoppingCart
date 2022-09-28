@@ -21,8 +21,8 @@
 	src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 
 <style>
-.body{
-	background-image : url("cover.jpg");
+.body {
+	background-image: url("cover.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -47,7 +47,8 @@
 					</a></li>
 					<c:if test="${sessionScope.email!=null}">
 						<form action="controller"
-							class="d-flex align-items-ceter justify-content-center" method="post">
+							class="d-flex align-items-ceter justify-content-center"
+							method="post">
 							<input type="hidden" class="nav-items" name="userAction"
 								value="cart">
 							<button type="submit" class="bg-light"
@@ -55,7 +56,8 @@
 						</form>
 					</c:if>
 					<form action="controller"
-						class="d-flex align-items-ceter justify-content-center" method="post">
+						class="d-flex align-items-ceter justify-content-center"
+						method="post">
 						<input type="hidden" class="nav-items" name="userAction"
 							value="products">
 						<button type="submit" class="bg-light"
@@ -63,36 +65,58 @@
 					</form>
 				</ul>
 				<div class='dropdown show ml-auto'>
-					<a class='btn btn-secondary dropdown-toggle' href='#' role='button'
-						id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true'
-						aria-expanded='false'> Account </a>
+					<c:if test="${sessionScope.user==null}">
+						<a class='btn btn-secondary dropdown-toggle' href='#'
+							role='button' id='dropdownMenuLink' data-toggle='dropdown'
+							aria-haspopup='true' aria-expanded='false'> Account </a>
 
-					<div class='dropdown-menu ml-auto'
-						aria-labelledby='dropdownMenuLink'>
-						<a class='dropdown-item' href="register.jsp">Register</a> <a
-							class='dropdown-item' href='login.jsp'> Login </a>
-					</div>
+						<div class='dropdown-menu ml-auto'
+							aria-labelledby='dropdownMenuLink'>
+							<a class='dropdown-item' href="register.jsp">Register</a> <a
+								class='dropdown-item' href='login.jsp'> Login </a>
+						</div>
+					</c:if>
+					<c:if test="${sessionScope.user!=null}">
+						<a class='btn btn-secondary dropdown-toggle' href='#'
+							role='button' id='dropdownMenuLink' data-toggle='dropdown'
+							aria-haspopup='true' aria-expanded='false'>
+							${sessionScope.user} </a>
+
+						<div class='dropdown-menu ml-auto'
+							aria-labelledby='dropdownMenuLink'>
+							<form action="controller"
+								class="d-flex align-items-ceter justify-content-center">
+								<input type="hidden" class="nav-items" name="userAction"
+									value="logout">
+								<button type="submit" class="bg-light"
+									style="background-color: none; border: none; margin: auto">Logout</button>
+							</form>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</nav>
 
 	</section>
-	
+
 	<section>
-	
-		<div class="continer my-5 py-5 d-flex align-items-center jsutify-content-center">
+
+		<div
+			class="continer my-5 py-5 d-flex align-items-center jsutify-content-center">
 			<div class="col-md-12">
 				<div class="my-5 py-5">
 					<h1>Welcome to Shopping Cart</h1>
 					<form action="controller" method="post">
-						<input type="hidden" class="nav-item" name="userAction" value="products">
-						<button class="btn btn-success" type="submit" >See All Products</button>
+						<input type="hidden" class="nav-item" name="userAction"
+							value="products">
+						<button class="btn btn-success" type="submit">See All
+							Products</button>
 					</form>
 				</div>
 			</div>
-		
+
 		</div>
-	
+
 	</section>
 
 

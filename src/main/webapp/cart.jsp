@@ -63,15 +63,34 @@
 					</form>
 				</ul>
 				<div class='dropdown show ml-auto'>
-					<a class='btn btn-secondary dropdown-toggle' href='#' role='button'
-						id='dropdownMenuLink' data-toggle='dropdown' aria-haspopup='true'
-						aria-expanded='false'> Account </a>
+					<c:if test="${sessionScope.user==null}">
+						<a class='btn btn-secondary dropdown-toggle' href='#'
+							role='button' id='dropdownMenuLink' data-toggle='dropdown'
+							aria-haspopup='true' aria-expanded='false'> Account </a>
 
-					<div class='dropdown-menu ml-auto'
-						aria-labelledby='dropdownMenuLink'>
-						<a class='dropdown-item' href="register.jsp">Register</a> <a
-							class='dropdown-item' href='login.jsp'> Login </a>
-					</div>
+						<div class='dropdown-menu ml-auto'
+							aria-labelledby='dropdownMenuLink'>
+							<a class='dropdown-item' href="register.jsp">Register</a> <a
+								class='dropdown-item' href='login.jsp'> Login </a>
+						</div>
+					</c:if>
+					<c:if test="${sessionScope.user!=null}">
+						<a class='btn btn-secondary dropdown-toggle' href='#'
+							role='button' id='dropdownMenuLink' data-toggle='dropdown'
+							aria-haspopup='true' aria-expanded='false'>
+							${sessionScope.user} </a>
+
+						<div class='dropdown-menu ml-auto'
+							aria-labelledby='dropdownMenuLink'>
+							<form action="controller"
+								class="d-flex align-items-ceter justify-content-center">
+								<input type="hidden" class="nav-items" name="userAction"
+									value="logout">
+								<button type="submit" class="bg-light"
+									style="background-color: none; border: none; margin: auto">Logout</button>
+							</form>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</nav>
