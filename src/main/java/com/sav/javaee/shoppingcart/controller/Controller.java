@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sav.javaee.shoppingcart.dto.DBConfDTO;
 import com.sav.javaee.shoppingcart.handler.Handler;
+import com.sav.javaee.shoppingcart.handler.LoginHandler;
 import com.sav.javaee.shoppingcart.handler.RegistrationHandler;
 
 /**
