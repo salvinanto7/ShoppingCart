@@ -110,15 +110,18 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:set var="total" value="0" scope="page" />
 						<c:forEach items="${cart}" var="element">
 							<tr>
 								<td>${element.name}</td>
 								<td>${element.description}</td>
 								<td>${element.price}</td>
 							</tr>
+							<c:set var="total" value="${total + element.price}" scope="page" />
 						</c:forEach>
 					</tbody>
 				</table>
+				<p>Total : ${total}</p>
 			</div>
 		</div>
 	</section>

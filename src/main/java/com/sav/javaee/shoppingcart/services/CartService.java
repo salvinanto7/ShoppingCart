@@ -1,6 +1,5 @@
 package com.sav.javaee.shoppingcart.services;
 
-import java.awt.dnd.DropTarget;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;

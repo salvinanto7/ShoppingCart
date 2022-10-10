@@ -25,7 +25,6 @@ public class CartHandler {
 	public String addToCart(int prodId, String email,HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
 		DBConfDTO dbConf = (DBConfDTO) request.getServletContext().getAttribute("dbConf");
 		CartService cartService = new CartService(dbConf);
-		HttpSession session = request.getSession(false);
 		String message = cartService.addToCart(email,prodId);
 		return message;
 	}

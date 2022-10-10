@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sav.javaee.shoppingcart.dao.DBConnection;
-import com.sav.javaee.shoppingcart.dao.GetCartDAO;
 import com.sav.javaee.shoppingcart.dao.GetProductsDAO;
 import com.sav.javaee.shoppingcart.dao.MSSQLConnection;
 import com.sav.javaee.shoppingcart.dto.DBConfDTO;
